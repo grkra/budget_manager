@@ -5,10 +5,3 @@ bin
 obj
 users.xml
 obligations.xml
-AuxiliaryMethods.*
-BudgetManager.*
-Markup.*
-SavedUsersXmlFile.*
-User.*
-UserManager.*
-XmlFile.*
