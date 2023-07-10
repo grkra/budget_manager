@@ -61,6 +61,13 @@ void UserManager::logInUser() {
 
     system ("cls");
     cout << "LOGGING IN" << endl;
+
+    if(users.size() == 0) {
+        cout << "No users registered." << endl;
+        system("pause");
+        return;
+    }
+
     cout << "Enter username: ";
     typedUsername = AuxiliaryMethods::takeTextLineFromUser();
 
@@ -71,7 +78,7 @@ void UserManager::logInUser() {
                 cout << "Enter username. Tries left: " << tries << ": ";
                 typedPassword = AuxiliaryMethods::takeTextLineFromUser();
 
-                if (itr->username == typedPassword) {
+                if (itr->password == typedPassword) {
                     cout << endl << "Password correct, logged in." << endl << endl;
                     system("pause");
                     idOfLoggedInUser = itr->userId;
@@ -93,7 +100,20 @@ bool UserManager::isUserLoggedIn() {
     return idOfLoggedInUser > 0? true : false;
 }
 
+void UserManager::changePassword() {
+    string newPassword = "";
+    cout << "Enter new password: ";
+    newPassword = AuxiliaryMethods::takeTextLineFromUser();
 
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+        if (itr->userId == idOfLoggedInUser) {
+            itr->password = newPassword;
+            savedUsersXmlFile.updateUserInFile(*itr);
+            cout << "Password changed." << endl ;
+            system("pause");
+        }
+    }
+}
 
 
 

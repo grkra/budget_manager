@@ -5,7 +5,7 @@ void BudgetManager::registerNewUser() {
 }
 
 void BudgetManager::logInUser() {
-    //userManager.showAllUsers();
+    userManager.showAllUsers();
     userManager.logInUser();
     if(userManager.isUserLoggedIn()) {
     }
@@ -29,6 +29,10 @@ char BudgetManager::showMainMenuAndChooseOption(){
     optionSelection = AuxiliaryMethods::takeCharacterFromUser();
 
     return optionSelection;
+}
+
+void BudgetManager::changePassword() {
+    userManager.changePassword();
 }
 
 char BudgetManager::showUserMenuAndChoseOption() {
