@@ -1,5 +1,27 @@
 #include "SavedUsersXmlFile.h"
 
+void SavedUsersXmlFile::updateUserInFile (User user) {
+    CMarkup xmlFile;
+    bool fileExists = xmlFile.Load(getFileName());
+
+    if(fileExists) {
+        xmlFile.FindElem("USERS");
+        xmlFile.IntoElem();
+        while(xmlFile.FindElem("USER")) {
+            xmlFile.IntoElem();
+            xmlFile.FindElem("id");
+
+            if(atoi(MCD_2PCSZ(xmlFile.GetData())) == user.userId) {
+                xmlFile.FindElem("password");
+                xmlFile.SetData(user.password);
+                xmlFile.Save(getFileName());
+                return;
+            }
+            xmlFile.OutOfElem();
+        }
+    }
+}
+
 void SavedUsersXmlFile::addUserToFile(User user) {
     CMarkup xmlFile;
     bool fileExists = xmlFile.Load(getFileName());
@@ -19,7 +41,7 @@ void SavedUsersXmlFile::addUserToFile(User user) {
     xmlFile.AddElem("firstName", user.firstName);
     xmlFile.AddElem("lastName", user.lastName);
 
-    xmlFile.Save("users.xml");
+    xmlFile.Save(getFileName());
 }
 
 vector <User> SavedUsersXmlFile::getUsersFromFile() {

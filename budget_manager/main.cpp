@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    BudgetManager budgetManager("Users.xml");
+    BudgetManager budgetManager("users.xml");
 
     char optionSelection;
 
@@ -51,8 +51,7 @@ int main() {
                 system("pause");
                 break;
             case '6':
-                cout << "CHANGE PASSWORD" << endl;
-                system("pause");
+                budgetManager.changePassword();
                 break;
             case '0':
                 cout << "LOG OUT" << endl;

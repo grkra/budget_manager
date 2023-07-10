@@ -16,6 +16,7 @@ public:
 
     void addUserToFile (User user);
     vector <User> getUsersFromFile();
+    void updateUserInFile (User user);
 };
 
 #endif // SAVEDUSERSXMLFILE_H
