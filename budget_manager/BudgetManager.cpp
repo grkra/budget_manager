@@ -5,14 +5,33 @@ void BudgetManager::registerNewUser() {
 }
 
 void BudgetManager::logInUser() {
-    userManager.showAllUsers();
+    //userManager.showAllUsers();
     userManager.logInUser();
     if(userManager.isUserLoggedIn()) {
+        balanceManager = new BalanceManager(userManager.getIdOfLoggedInUser(), SAVED_INCOMES_FILE_NAME, SAVED_EXPENSES_FILE_NAME);
     }
 }
 
 bool BudgetManager::isUserLoggedIn() {
     return userManager.isUserLoggedIn();
+}
+
+void BudgetManager::changePassword() {
+    userManager.changePassword();
+}
+
+void BudgetManager::logOutUser(){
+    userManager.logOutUser();
+    delete balanceManager;
+    balanceManager = NULL;
+}
+
+void BudgetManager::addNewIncome() {
+    balanceManager->addNewIncome();
+}
+
+void BudgetManager::addNewExpense() {
+    balanceManager->addNewExpense();
 }
 
 char BudgetManager::showMainMenuAndChooseOption(){
@@ -29,10 +48,6 @@ char BudgetManager::showMainMenuAndChooseOption(){
     optionSelection = AuxiliaryMethods::takeCharacterFromUser();
 
     return optionSelection;
-}
-
-void BudgetManager::changePassword() {
-    userManager.changePassword();
 }
 
 char BudgetManager::showUserMenuAndChoseOption() {

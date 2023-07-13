@@ -26,6 +26,10 @@ public:
     void logInUser();
     bool isUserLoggedIn();
     void changePassword();
+    void logOutUser();
+    int getIdOfLoggedInUser();
+
+   //DO USUNIECIA
     void showAllUsers();
 };
 

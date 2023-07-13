@@ -115,7 +115,13 @@ void UserManager::changePassword() {
     }
 }
 
+void UserManager::logOutUser() {
+    idOfLoggedInUser = 0;
+}
 
+int UserManager::getIdOfLoggedInUser() {
+    return idOfLoggedInUser;
+}
 
 
 
