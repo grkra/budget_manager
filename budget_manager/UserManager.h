@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <windows.h>
 
 #include "User.h"
 #include "AuxiliaryMethods.h"
@@ -26,7 +27,8 @@ public:
     void logInUser();
     bool isUserLoggedIn();
     void changePassword();
-    void showAllUsers();
+    void logOutUser();
+    int getIdOfLoggedInUser();
 };
 
 #endif // USERMANAGER_H

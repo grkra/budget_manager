@@ -6,12 +6,13 @@
 #include "XmlFile.h"
 #include "User.h"
 
-class SavedUsersXmlFile : public XmlFile
-{
+using namespace std;
+
+class SavedUsersXmlFile : public XmlFile {
     User getUserData(CMarkup xmlFile);
 
 public:
-    SavedUsersXmlFile(string savedUsersFileName): XmlFile(savedUsersFileName){
+    SavedUsersXmlFile(string savedUsersFileName): XmlFile(savedUsersFileName) {
     };
 
     void addUserToFile (User user);

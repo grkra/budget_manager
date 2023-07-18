@@ -3,14 +3,14 @@
 using namespace std;
 
 int main() {
-    BudgetManager budgetManager("users.xml");
+    BudgetManager budgetManager("users.xml", "incomes.xml", "expenses.xml");
 
     char optionSelection;
+    enum type {income, expense};
 
     while(true) {
         if(!budgetManager.isUserLoggedIn()) {
             optionSelection = budgetManager.showMainMenuAndChooseOption();
-
             switch (optionSelection) {
             case '1':
                 budgetManager.registerNewUser();
@@ -23,47 +23,38 @@ int main() {
                 break;
             default:
                 cout << "Wrong input - there is no such option" << endl;
-                system("pause");
+                Sleep (700);
                 break;
             }
         } else {
             optionSelection = budgetManager.showUserMenuAndChoseOption();
-
             switch (optionSelection) {
             case '1':
-                cout << "ADD INCOME" << endl;
-                system("pause");
+                budgetManager.addNewIncome();
                 break;
             case '2':
-                cout << "ADD EXPENSE" << endl;
-                system("pause");
+                budgetManager.addNewExpense();
                 break;
             case '3':
-                cout << "SHOW CURRENT MOUNTH BALANCE" << endl;
-                system("pause");
+                budgetManager.showCurrentMonthBalance();
                 break;
             case '4':
-                cout << "SHOW LAST MOUNTH BALANCE" << endl;
-                system("pause");
+                budgetManager.showLastMonthBalance();
                 break;
             case '5':
-                cout << "SHOW BALANCE FOR SPECIFIED PERIOD" << endl;
-                system("pause");
+                budgetManager.showSpecifiedPeriodBalance();
                 break;
             case '6':
                 budgetManager.changePassword();
                 break;
             case '0':
-                cout << "LOG OUT" << endl;
-                system("pause");
-                exit (0);
+                budgetManager.logOutUser();
                 break;
             default:
                 cout << "Wrong input - there is no such option" << endl;
-                system("pause");
+                Sleep (700);
                 break;
             }
-
         }
     }
 

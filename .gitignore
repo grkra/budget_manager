@@ -3,5 +3,5 @@ budget_manager.layout
 budget_manager.depend
 bin
 obj
-users.xml
+*.xml
 obligations.xml
