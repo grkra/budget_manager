@@ -29,10 +29,13 @@ public:
     void registerNewUser();
     void logInUser();
     bool isUserLoggedIn();
-    void changePassword();
-    void logOutUser();
     void addNewIncome();
     void addNewExpense();
+    void showCurrentMonthBalance();
+    void showLastMonthBalance();
+    void showSpecifiedPeriodBalance();
+    void changePassword();
+    void logOutUser();
     char showMainMenuAndChooseOption();
     char showUserMenuAndChoseOption();
 };

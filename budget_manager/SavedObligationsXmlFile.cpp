@@ -15,7 +15,7 @@ bool SavedObligationsXmlFile::addObligationToFile(Obligation obligation) {
     xmlFile.IntoElem();
     xmlFile.AddElem("userId", obligation.userId);
     xmlFile.AddElem("id", obligation.id);
-    xmlFile.AddElem("date", obligation.date);
+    xmlFile.AddElem("date", DateMethods::convertIntegerDateToStringDateWithDashes(obligation.date));
     xmlFile.AddElem("value", AuxiliaryMethods::convertDoubleToString(obligation.value));
     xmlFile.AddElem("description", obligation.description);
 
@@ -46,6 +46,7 @@ vector <Obligation> SavedObligationsXmlFile::getObligationsFromFile(int userId) 
             xmlFile.OutOfElem();
         }
     }
+    sort(obligations.begin(), obligations.end());
     return obligations;
 }
 
@@ -59,7 +60,7 @@ Obligation SavedObligationsXmlFile::getObligationData(CMarkup xmlFile) {
     temporaryObligation.id = atoi(MCD_2PCSZ(xmlFile.GetData()));
 
     xmlFile.FindElem("date");
-    temporaryObligation.date = atoi(MCD_2PCSZ(xmlFile.GetData()));
+    temporaryObligation.date = DateMethods::convertStringDateWithDashesToIntegerDate(xmlFile.GetData());
 
     xmlFile.FindElem("value");
     temporaryObligation.value = stod(MCD_2PCSZ(xmlFile.GetData()));

@@ -6,6 +6,7 @@
 #include "XmlFile.h"
 #include "Obligation.h"
 #include "AuxiliaryMethods.h"
+#include "DateMethods.h"
 
 using namespace std;
 

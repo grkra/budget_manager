@@ -5,7 +5,6 @@ void BudgetManager::registerNewUser() {
 }
 
 void BudgetManager::logInUser() {
-    //userManager.showAllUsers();
     userManager.logInUser();
     if(userManager.isUserLoggedIn()) {
         balanceManager = new BalanceManager(userManager.getIdOfLoggedInUser(), SAVED_INCOMES_FILE_NAME, SAVED_EXPENSES_FILE_NAME);
@@ -20,7 +19,7 @@ void BudgetManager::changePassword() {
     userManager.changePassword();
 }
 
-void BudgetManager::logOutUser(){
+void BudgetManager::logOutUser() {
     userManager.logOutUser();
     delete balanceManager;
     balanceManager = NULL;
@@ -34,7 +33,17 @@ void BudgetManager::addNewExpense() {
     balanceManager->addNewExpense();
 }
 
-char BudgetManager::showMainMenuAndChooseOption(){
+void BudgetManager::showCurrentMonthBalance() {
+    balanceManager->showCurrentMonthBalance();
+}
+void BudgetManager::showLastMonthBalance() {
+    balanceManager->showLastMonthBalance();
+}
+void BudgetManager::showSpecifiedPeriodBalance() {
+    balanceManager->showSpecifiedPeriodBalance();
+}
+
+char BudgetManager::showMainMenuAndChooseOption() {
     char optionSelection;
 
     system("cls");

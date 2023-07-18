@@ -23,7 +23,7 @@ int main() {
                 break;
             default:
                 cout << "Wrong input - there is no such option" << endl;
-                system("pause");
+                Sleep (700);
                 break;
             }
         } else {
@@ -36,16 +36,13 @@ int main() {
                 budgetManager.addNewExpense();
                 break;
             case '3':
-                cout << "SHOW CURRENT MOUNTH BALANCE" << endl;
-                system("pause");
+                budgetManager.showCurrentMonthBalance();
                 break;
             case '4':
-                cout << "SHOW LAST MOUNTH BALANCE" << endl;
-                system("pause");
+                budgetManager.showLastMonthBalance();
                 break;
             case '5':
-                cout << "SHOW BALANCE FOR SPECIFIED PERIOD" << endl;
-                system("pause");
+                budgetManager.showSpecifiedPeriodBalance();
                 break;
             case '6':
                 budgetManager.changePassword();
@@ -55,7 +52,7 @@ int main() {
                 break;
             default:
                 cout << "Wrong input - there is no such option" << endl;
-                system("pause");
+                Sleep (700);
                 break;
             }
         }

@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <sstream>
-#include <algorithm>
 #include <regex>
 #include <math.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,12 +14,9 @@ public:
     static char takeCharacterFromUser();
     static string takeTextLineFromUser();
     static double takeDecimalNumberFromUser();
-    static string takeDateFromUser();
-    static tm getCurrentTime();
-    static bool isDateValid(string date);
-    static int checkNumberOfDaysInMonth(int year, int month);
-    static bool isLeapYear (int year);
-    static string convertDoubleToString (double number);
+    static string convertDoubleToString (double doubleNumber);
+    static string convertFirstLetterToCapitalAndOtherToSmall(string text);
+    static string addCommasAsThousandSeparators(string stringNumber);
 };
 
 #endif // AUXILIARYMETHODS_H

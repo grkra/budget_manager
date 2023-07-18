@@ -4,11 +4,12 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
-#include <algorithm>
+#include <iomanip>
 
 #include "Obligation.h"
 #include "SavedObligationsXmlFile.h"
 #include "AuxiliaryMethods.h"
+#include "DateMethods.h"
 
 using namespace std;
 
@@ -20,10 +21,14 @@ class BalanceManager {
     SavedObligationsXmlFile savedExpensesXmlFile;
     enum ObligationType {INCOME, EXPENSE};
 
-    int convertTmStructToIntegerDate(tm timeToConvert);
-    int convertStringDateWithDashesToIntegerDate(string inputString);
     Obligation takeObligationDetails(const ObligationType obligationType);
+    void addObligation(const ObligationType obligationType);
     void showAddObligationMenu(const ObligationType obligationType);
+    void showObligationDetails(Obligation obligation);
+    void showIncomesExpensesAndBalance(int startDate, int endDate);
+    double showListOfObligations(const ObligationType obligationType, int startDate, int endDate);
+    void showHeaderInTableOfObligations (string text);
+    void showSummaryOfObligations (double value);
 public:
     BalanceManager(int idOfLoggedInUser,
                    string savedIncomesFileName,
@@ -35,9 +40,9 @@ public:
 
     void addNewIncome();
     void addNewExpense();
-    //DO USUNIECIA
-    void showAllIncomes();
-    int checkIdForNewIncome();
+    void showCurrentMonthBalance();
+    void showLastMonthBalance();
+    void showSpecifiedPeriodBalance();
 };
 
 #endif // BALANCEMANAGER_H

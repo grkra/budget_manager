@@ -7,7 +7,7 @@ void UserManager::registerNewUser() {
     savedUsersXmlFile.addUserToFile(user);
 
     cout << endl << "Added new user" << endl << endl;
-    system("pause");
+    Sleep (700);
 }
 
 User UserManager::enterDataOfNewUser() {
@@ -29,10 +29,10 @@ User UserManager::enterDataOfNewUser() {
     user.password = AuxiliaryMethods::takeTextLineFromUser();
 
     cout << "Enter first name: ";
-    user.firstName = AuxiliaryMethods::takeTextLineFromUser();
+    user.firstName = AuxiliaryMethods::convertFirstLetterToCapitalAndOtherToSmall(AuxiliaryMethods::takeTextLineFromUser());
 
     cout << "Enter last name: ";
-    user.lastName = AuxiliaryMethods::takeTextLineFromUser();
+    user.lastName = AuxiliaryMethods::convertFirstLetterToCapitalAndOtherToSmall(AuxiliaryMethods::takeTextLineFromUser());
 
     return user;
 }
@@ -64,7 +64,7 @@ void UserManager::logInUser() {
 
     if(users.size() == 0) {
         cout << "No users registered." << endl;
-        system("pause");
+        Sleep (700);
         return;
     }
 
@@ -80,19 +80,19 @@ void UserManager::logInUser() {
 
                 if (itr->password == typedPassword) {
                     cout << endl << "Password correct, logged in." << endl << endl;
-                    system("pause");
+                    Sleep (700);
                     idOfLoggedInUser = itr->userId;
                     return;
                 }
             }
             cout << "Entered wrong password 3 times." << endl;
-            system("pause");
+            Sleep (700);
             return;
         }
         itr++;
     }
     cout << "No user with entered username" << endl << endl;
-    system("pause");
+    Sleep (700);
     return;
 }
 
@@ -110,7 +110,7 @@ void UserManager::changePassword() {
             itr->password = newPassword;
             savedUsersXmlFile.updateUserInFile(*itr);
             cout << "Password changed." << endl ;
-            system("pause");
+            Sleep (700);
         }
     }
 }
@@ -121,23 +121,4 @@ void UserManager::logOutUser() {
 
 int UserManager::getIdOfLoggedInUser() {
     return idOfLoggedInUser;
-}
-
-
-
-
-
-
-
-
-//DO USUNIEICA
-void UserManager::showAllUsers() {
-    for (size_t i = 0; i < users.size(); i++) {
-        cout << "ID: " << users[i].userId << ", ";
-        cout << "USERNAME: " << users[i].username << ", ";
-        cout << "PASSWORD: " <<  users[i].password << ", ";
-        cout << "FIRST NAME: " <<  users[i].firstName << ", ";
-        cout << "LAST NAME: " <<  users[i].lastName << endl;
-    }
-    system("pause");
 }
