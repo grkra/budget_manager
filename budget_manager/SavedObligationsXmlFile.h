@@ -11,18 +11,18 @@
 using namespace std;
 
 class SavedObligationsXmlFile : public XmlFile {
-    int idOfLastObligationInFile;
+    //int idOfLastObligationInFile;
 
     Obligation getObligationData(CMarkup xmlFile);
 
 public:
     SavedObligationsXmlFile(string savedObligationsFileName): XmlFile(savedObligationsFileName) {
-        idOfLastObligationInFile = 0;
+        //idOfLastObligationInFile = 0;
     }
 
     bool addObligationToFile(Obligation obligation);
     vector <Obligation> getObligationsFromFile(int userId);
-    int getIdOfLastObligationInFile();
+    //int getIdOfLastObligationInFile();
 };
 
 #endif // SAVEDOBLIGATIONSXMLFILE_H

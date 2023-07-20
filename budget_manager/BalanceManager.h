@@ -10,6 +10,7 @@
 #include "SavedObligationsXmlFile.h"
 #include "AuxiliaryMethods.h"
 #include "DateMethods.h"
+#include "Type.h"
 
 using namespace std;
 
@@ -19,14 +20,13 @@ class BalanceManager {
     vector <Obligation> expenses;
     SavedObligationsXmlFile savedIncomesXmlFile;
     SavedObligationsXmlFile savedExpensesXmlFile;
-    enum ObligationType {INCOME, EXPENSE};
 
-    Obligation takeObligationDetails(const ObligationType obligationType);
-    void addObligation(const ObligationType obligationType);
-    void showAddObligationMenu(const ObligationType obligationType);
+    Obligation takeObligationDetails(const Type obligationType);
+    void addObligation(const Type obligationType);
+    void showAddObligationMenu(const Type obligationType);
     void showObligationDetails(Obligation obligation);
     void showIncomesExpensesAndBalance(int startDate, int endDate);
-    double showListOfObligations(const ObligationType obligationType, int startDate, int endDate);
+    double showListOfObligations(const Type obligationType, int startDate, int endDate);
     void showHeaderInTableOfObligations (string text);
     void showSummaryOfObligations (double value);
 public:

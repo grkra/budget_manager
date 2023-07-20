@@ -6,7 +6,6 @@ int main() {
     BudgetManager budgetManager("users.xml", "incomes.xml", "expenses.xml");
 
     char optionSelection;
-    enum type {income, expense};
 
     while(true) {
         if(!budgetManager.isUserLoggedIn()) {

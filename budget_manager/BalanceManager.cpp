@@ -8,7 +8,7 @@ void BalanceManager::addNewExpense() {
     addObligation(EXPENSE);
 }
 
-void BalanceManager::addObligation(const ObligationType obligationType) {
+void BalanceManager::addObligation(const Type obligationType) {
     Obligation newObligation;
     newObligation = takeObligationDetails (obligationType);
     string obligationTypeName = "";
@@ -32,7 +32,7 @@ void BalanceManager::addObligation(const ObligationType obligationType) {
     Sleep (700);
 }
 
-Obligation BalanceManager::takeObligationDetails(const ObligationType obligationType) {
+Obligation BalanceManager::takeObligationDetails(const Type obligationType) {
     int inputDate = 0;
     Obligation newObligation;
     newObligation.userId = ID_OF_LOGGED_IN_USER;
@@ -63,16 +63,16 @@ Obligation BalanceManager::takeObligationDetails(const ObligationType obligation
 
     switch(obligationType) {
     case INCOME:
-        newObligation.id = savedIncomesXmlFile.getIdOfLastObligationInFile() + 1;
+        newObligation.id = savedIncomesXmlFile.getLastId() + 1;
         break;
     case EXPENSE:
-        newObligation.id = savedExpensesXmlFile.getIdOfLastObligationInFile() + 1;
+        newObligation.id = savedExpensesXmlFile.getLastId() + 1;
         break;
     }
     return newObligation;
 }
 
-void BalanceManager::showAddObligationMenu(const ObligationType obligationType) {
+void BalanceManager::showAddObligationMenu(const Type obligationType) {
     string obligationTypeName = "";
 
     switch(obligationType) {
@@ -113,7 +113,7 @@ void BalanceManager::showSummaryOfObligations (double value) {
     cout << endl;
 }
 
-double BalanceManager::showListOfObligations(const ObligationType obligationType, int startDate, int endDate) {
+double BalanceManager::showListOfObligations(const Type obligationType, int startDate, int endDate) {
     double sumOfObligations = 0;
 
     vector <Obligation> *obligations;
