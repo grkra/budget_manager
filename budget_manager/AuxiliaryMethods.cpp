@@ -77,7 +77,7 @@ string AuxiliaryMethods::addCommasAsThousandSeparators(string stringNumber) {
         for (int i = decimalMark - 1; i>=0; i--) {
             stringNumberWithCommas.push_back(stringNumber[i]);
             counter++;
-            if(counter>3 && i != 0) {
+            if(counter>3 && i != 0 && stringNumber[i-1] != '-') {
                 stringNumberWithCommas.push_back(',');
                 counter=1;
             }

@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
+      <x>220</x>
       <y>370</y>
       <w>130</w>
       <h>130</h>
@@ -23,7 +23,7 @@ User
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1180</x>
+      <x>1080</x>
       <y>370</y>
       <w>130</w>
       <h>150</h>
@@ -43,7 +43,7 @@ Obligation
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
+      <x>530</x>
       <y>0</y>
       <w>280</w>
       <h>330</h>
@@ -74,10 +74,10 @@ Obligation
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>810</x>
+      <x>710</x>
       <y>370</y>
       <w>330</w>
-      <h>360</h>
+      <h>340</h>
     </coordinates>
     <panel_attributes>BalanceManager
 -
@@ -86,7 +86,6 @@ Obligation
 - expenses: vector&lt;Obligation&gt;
 - savedIncomesXmlFile: SavedObligationsXmlFile
 - savedExpensesXmlFile: SavedObligationsXmlFile
-- ObligationType: enum
 -
 + BalanceManager()
 + addNewIncome(): void
@@ -94,12 +93,12 @@ Obligation
 + showCurrentMonthBalance(): void
 + showLastMonthBalance(): void
 + showSpecifiedPeriodBalance(): void
-- takeObligationDetails(ObligationType): Obligation
-- addObligation(ObligationType): void
-- showAddObligationMenu(ObligationType): void
+- takeObligationDetails(Type): Obligation
+- addObligation(Type): void
+- showAddObligationMenu(Type): void
 - showObligationDetails(Obligation): void
 - showIncomesExpensesAndBalance(int, int): void
-- showListOfObligations(ObligationType, int, int): double
+- showListOfObligations(Type, int, int): double
 - showHeaderInTableOfObligations(string ): void
 - showSummaryOfObligations(double): void</panel_attributes>
     <additional_attributes/>
@@ -107,7 +106,7 @@ Obligation
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
+      <x>390</x>
       <y>370</y>
       <w>280</w>
       <h>250</h>
@@ -133,7 +132,7 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
+      <x>340</x>
       <y>370</y>
       <w>70</w>
       <h>30</h>
@@ -144,7 +143,7 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>670</x>
+      <x>570</x>
       <y>320</y>
       <w>30</w>
       <h>70</h>
@@ -155,7 +154,7 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>850</x>
+      <x>750</x>
       <y>320</y>
       <w>30</w>
       <h>70</h>
@@ -166,7 +165,7 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1130</x>
+      <x>1030</x>
       <y>370</y>
       <w>70</w>
       <h>30</h>
@@ -177,23 +176,25 @@ Obligation
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
+      <x>590</x>
       <y>1130</y>
       <w>160</w>
-      <h>100</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>XmlFile
 -
 - FILE_NAME: string
+# lastId: int
 -
 + XmlFile()
++ getLastId(): int
 # getFileName(): string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>410</x>
+      <x>310</x>
       <y>1130</y>
       <w>240</w>
       <h>110</h>
@@ -210,26 +211,23 @@ Obligation
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>890</x>
+      <x>790</x>
       <y>1130</y>
       <w>320</w>
-      <h>130</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>SavedObligationsXmlFile
--
-- idOfLastObligationInFile: int
 -
 + SavedObligationsXmlFile();
 + addObligationToFile(Obligation): void
 + getObligationsFromFile(): vector&lt;Obligation&gt;
-+ getIdOfLastObligationInFile(): int
 - getObligationData(CMarkup): Obligation</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
+      <x>740</x>
       <y>1130</y>
       <w>70</w>
       <h>30</h>
@@ -240,7 +238,7 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>540</x>
       <y>1130</y>
       <w>70</w>
       <h>30</h>
@@ -251,7 +249,7 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>400</x>
       <y>610</y>
       <w>30</w>
       <h>540</h>
@@ -262,18 +260,18 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1110</x>
-      <y>720</y>
+      <x>1010</x>
+      <y>700</y>
       <w>30</w>
-      <h>430</h>
+      <h>450</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;430.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1180</x>
+      <x>1080</x>
       <y>510</y>
       <w>30</w>
       <h>640</h>
@@ -284,7 +282,7 @@ Obligation
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
+      <x>320</x>
       <y>490</y>
       <w>30</w>
       <h>660</h>
@@ -295,7 +293,7 @@ Obligation
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
+      <x>510</x>
       <y>760</y>
       <w>400</w>
       <h>130</h>
@@ -313,7 +311,7 @@ _+ convertFirstLetterToCapitalAndOtherToSmall(string): string_</panel_attributes
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>450</x>
       <y>840</y>
       <w>30</w>
       <h>310</h>
@@ -324,7 +322,7 @@ _+ convertFirstLetterToCapitalAndOtherToSmall(string): string_</panel_attributes
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>450</x>
       <y>610</y>
       <w>80</w>
       <h>260</h>
@@ -335,8 +333,8 @@ _+ convertFirstLetterToCapitalAndOtherToSmall(string): string_</panel_attributes
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>710</x>
-      <y>1270</y>
+      <x>610</x>
+      <y>1280</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -348,18 +346,18 @@ _+ convertFirstLetterToCapitalAndOtherToSmall(string): string_</panel_attributes
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>720</y>
+      <x>900</x>
+      <y>700</y>
       <w>90</w>
-      <h>150</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;130.0;70.0;130.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;70.0;150.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
+      <x>960</x>
       <y>840</y>
       <w>30</w>
       <h>310</h>
@@ -370,18 +368,18 @@ _+ convertFirstLetterToCapitalAndOtherToSmall(string): string_</panel_attributes
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>1220</y>
+      <x>650</x>
+      <y>1240</y>
       <w>30</w>
-      <h>70</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
+      <x>510</x>
       <y>920</y>
       <w>400</w>
       <h>180</h>
@@ -402,7 +400,7 @@ _+ calculateDateMonthAgoFromToday(tm): tm_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
+      <x>900</x>
       <y>980</y>
       <w>90</w>
       <h>30</h>
@@ -413,7 +411,7 @@ _+ calculateDateMonthAgoFromToday(tm): tm_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>450</x>
       <y>980</y>
       <w>80</w>
       <h>30</h>
@@ -424,12 +422,38 @@ _+ calculateDateMonthAgoFromToday(tm): tm_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>790</x>
+      <x>690</x>
       <y>880</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>250</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Type
+-
+INCOME
+EXPENSE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>320</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>

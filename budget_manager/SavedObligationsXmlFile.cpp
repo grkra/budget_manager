@@ -20,7 +20,7 @@ bool SavedObligationsXmlFile::addObligationToFile(Obligation obligation) {
     xmlFile.AddElem("description", obligation.description);
 
     if (xmlFile.Save(getFileName())) {
-        idOfLastObligationInFile ++;
+        lastId ++;
         return true;
     }
     return false;
@@ -39,7 +39,7 @@ vector <Obligation> SavedObligationsXmlFile::getObligationsFromFile(int userId) 
         while(xmlFile.FindElem("OBLIGATION")) {
             xmlFile.IntoElem();
             temporaryObligation = getObligationData(xmlFile);
-            idOfLastObligationInFile = temporaryObligation.id;
+            lastId = temporaryObligation.id;
             if(temporaryObligation.userId == userId) {
                 obligations.push_back(temporaryObligation);
             }
@@ -69,8 +69,4 @@ Obligation SavedObligationsXmlFile::getObligationData(CMarkup xmlFile) {
     temporaryObligation.description = xmlFile.GetData();
 
     return temporaryObligation;
-}
-
-int SavedObligationsXmlFile::getIdOfLastObligationInFile() {
-    return idOfLastObligationInFile;
 }

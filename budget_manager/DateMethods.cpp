@@ -37,6 +37,7 @@ bool DateMethods::isDateValid(string date) {
         cout << "Exception occurred: " << e.what() << endl;
         return false;
     }
+
     if(year < 2000) {
         cout << "Invalid year. Earliest possible year is 2000. Please type date again: ";
         return false;
@@ -53,11 +54,12 @@ bool DateMethods::isDateValid(string date) {
         cout << "Invalid day. Entered month has " << checkNumberOfDaysInMonth(year, month) << " days. Please type date again: ";
         return false;
     }
-    if(year > currentTime.tm_year && month > currentTime.tm_mon && dayOfMonth > currentTime.tm_mday) {
+    if((year > currentTime.tm_year)
+       ||(year >= currentTime.tm_year && month > currentTime.tm_mon)
+       ||(year >= currentTime.tm_year && month >= currentTime.tm_mon && dayOfMonth > currentTime.tm_mday)) {
         cout << "Invalid date. Latest possible date is todays date. Please type date again: ";
         return false;
     }
-
 
     return true;
 }
